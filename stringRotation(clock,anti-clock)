@@ -1,0 +1,34 @@
+
+#include <stdio.h>
+
+int main()
+{
+    long long int num;
+    int rot,power,len;
+    scanf("%lld %d",&num,&rot);
+    for(len=0,power=1;num/power;power*=10,len++);
+    power/=10;
+    
+    //clockwise rotation
+    if(len==rot){
+        printf("%lld",num);
+    }
+    else{
+    for(int index=0;index<rot;index++){
+        num=(num%10)*power+(num/10);
+    }
+    printf("%lld",num);
+        }
+    
+    
+    
+    //anti-clockwise rotation
+    for(int index=0;index<rot;index++){
+        num=(num%power)*10+(num/power);
+    }
+    printf("%lld",num);
+    
+
+    return 0;
+}
+
